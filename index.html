@@ -199,25 +199,30 @@
     }
 
     .thumbs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin: 10px 0 14px;
-    }
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;   /* défilement fluide au doigt */
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.thumbs::-webkit-scrollbar { display: none; }   /* cache la barre de défilement */
 
     .thumb {
-      display: grid;
-      place-items: center;
-      min-height: 66px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #f7f3ed;
-      color: var(--muted);
-      font-size: .68rem;
-      font-weight: 800;
-      text-align: center;
-    }
+  flex: 0 0 72px;            /* largeur fixe -> elles défilent au lieu de se serrer */
+  scroll-snap-align: start;
+  display: grid;
+  place-items: center;
+  min-height: 66px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f7f3ed;
+  cursor: pointer;           /* montre que c'est cliquable */
+}
 
     .thumb.active {
       border: 2px solid var(--black);
@@ -1251,6 +1256,23 @@ CONFIGURATION GENERALE
     updateStockGauge();
     updateTimer();
     setInterval(updateTimer, 1000);
+
+    /* ----- Galerie : clic sur une vignette = change la photo principale ----- */
+(function () {
+  const heroPhoto = document.querySelector(".hero-photo");
+  const thumbs = document.querySelectorAll(".thumb");
+  thumbs.forEach(function (thumb) {
+    thumb.addEventListener("click", function () {
+      const img = thumb.querySelector("img");
+      if (!img || !heroPhoto) return;
+      heroPhoto.src = img.src;            // remplace la grande image
+      heroPhoto.alt = img.alt;
+      thumbs.forEach(t => t.classList.remove("active"));
+      thumb.classList.add("active");      // déplace le contour noir
+    });
+  });
+})();
+
   </script>
 </body>
 </html>
