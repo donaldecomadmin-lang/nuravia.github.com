@@ -795,7 +795,53 @@ height:72px;
 object-fit:cover;
 border-radius:8px;
 }
+  /* ----- SECTION AVIS ----- */
+  .wa-reviews{
+    padding:30px 0 26px;
+    background:#fff6f8;                 /* fond doux rosé pour séparer de la description */
+    border-top:1px solid #f0d9df;
+    border-bottom:1px solid #f0d9df;
+  }
+  .wa-reviews-head{text-align:center;padding:0 22px 16px}
+  .wa-badge{
+    display:inline-flex;align-items:center;gap:7px;
+    background:#e7f8ee;color:#168a4c;font-weight:700;font-size:12.5px;
+    padding:6px 13px;border-radius:999px;margin-bottom:12px;
+  }
+  .wa-badge svg{width:16px;height:16px}
+  .wa-reviews-head h2{
+    font-size:23px;font-weight:800;margin:0 0 8px;color:#2b2b2b;letter-spacing:.01em;
+  }
+  .wa-stars{color:#f5a623;font-size:18px;letter-spacing:2px;margin-bottom:4px}
+  .wa-stars span{display:block;color:#777;font-size:12.5px;letter-spacing:normal;margin-top:3px}
+  .wa-hint{color:#c95c7f;font-size:12.5px;font-weight:600;margin:10px 0 0}
+ 
+  /* ----- CARROUSEL ----- */
+  .social-proof-grid{
+    display:flex;overflow-x:auto;overflow-y:hidden;gap:12px;
+    padding:14px 22px 6px;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;width:100%;box-sizing:border-box;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .social-proof-grid::-webkit-scrollbar{display:none}
+  .social-proof-card{
+    position:relative;flex:0 0 230px;aspect-ratio:9/16;overflow:hidden;
+    border-radius:18px;border:3px solid #c95c7f;scroll-snap-align:start;
+    background:#f3e6ea;
+  }
+  .social-proof-card img{width:100%;height:100%;object-fit:cover;display:block}
+ 
+  /* bouton play — UNIQUEMENT sur les cartes vidéo (classe .has-video) */
+  .social-proof-card .play-button{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:64px;height:64px;background:rgba(0,0,0,.65);border-radius:50%;
+  }
+  .social-proof-card .play-button:before{
+    content:"";position:absolute;top:21px;left:26px;
+    border-left:17px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;
+  }
   </style>
+
 </head>
 <body>
   <main class="page">
@@ -975,6 +1021,49 @@ modifier la 4e img de description
       <h2>CONFORTABLE ET AJUSTABLE</h2>
       <p>Fabriquée avec des matériaux doux et respirants, elle s’adapte à votre corps tout au long de la grossesse. Son système ajustable permet un maintien optimal sans compression.</p>
     </section>
+
+    <section class="wa-reviews">
+  <div class="wa-reviews-head">
+    <span class="wa-badge">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+      Avis reçus sur WhatsApp
+    </span>
+    <h2>Elles l'ont adoptée</h2>
+    <div class="wa-stars">★★★★★<span>Note moyenne de nos clientes</span></div>
+    <p class="wa-hint">← glissez pour voir tous les avis →</p>
+  </div>
+ 
+  <div class="social-proof-grid">
+    <!-- Carte AVIS (capture WhatsApp) : pas de bouton play -->
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/s.o7.png?v=1780763686" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/so2.png?v=1780764318" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/so11.png?v=1780764868" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/sp9.png?v=1780763686" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/sp8.png?v=1780763686" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/sp133.png?v=1780763685" alt="Avis cliente WhatsApp">
+    </div>
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/so5.png?v=1780765227" alt="Avis cliente WhatsApp">
+    </div>
+ 
+    <!-- Carte VIDÉO témoignage : AJOUTE la ligne play-button (exemple ci-dessous) -->
+    <div class="social-proof-card">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0813/9853/0276/files/so4.png?v=1780765227" alt="Témoignage vidéo cliente">
+      <div class="play-button"></div>
+    </div>
+  </div>
+</section>
 
     <section class="wide-image" aria-label="Mode d'utilisation de la ceinture">
       <img src="images/ceinutre-principale2.webp" alt="Étapes pour utiliser la ceinture de maternité">
