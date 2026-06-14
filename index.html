@@ -723,15 +723,22 @@
         width: 100%;
       }
     }
-   .ae-review-slider{
-width:100%;
-position:relative;
+   /* ----- AVIS CLIENT : encadré pour le différencier ----- */
+.ae-review-slider{
+  width:100%;
+  margin:16px 0 6px;
 }
 
 .ae-review{
-padding:10px 0;
-border-bottom:1px solid #ededed;
+  background:#faf7f0;                   /* léger fond crème : ressort sur le blanc */
+  border:1px solid #ece4d3;
+  border-left:4px solid var(--green);   /* barre verte = avis vérifié, signal de confiance */
+  border-radius:10px;
+  padding:14px;
+  box-shadow:0 6px 16px rgba(22,20,15,.07);
+  margin-bottom:10px;
 }
+.ae-review:last-child{ margin-bottom:0; }
 
 .ae-top{
 display:flex;
@@ -1160,7 +1167,7 @@ CONFIGURATION GENERALE
         "Quantité : " + qty.value,
         "Total : " + formatFcfa(selectedPrice()),
         "Nom : " + nameInput.value.trim(),
-        "Ville / quartier : " + cityInput.value.trim()
+        "Lieu de livraison: " + cityInput.value.trim()
       ].join("\n");
     }
 
