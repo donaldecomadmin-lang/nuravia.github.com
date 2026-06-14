@@ -723,65 +723,77 @@
         width: 100%;
       }
     }
-    .mini-order{
-display:flex;
-align-items:center;
-gap:14px;
-background:#fff;
-padding:16px;
-margin-top:8px;
-border-bottom:1px solid #ececec;
+   .ae-review-slider{
+width:100%;
+position:relative;
 }
 
-.review-avatar{
-width:40px;
-height:40px;
+.ae-review{
+padding:10px 0;
+border-bottom:1px solid #ededed;
+}
+
+.ae-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+}
+
+.ae-left{
+display:flex;
+flex:1;
+min-width:0;
+}
+
+.ae-avatar{
+width:42px;
+height:42px;
 border-radius:50%;
 background:#1e88e5;
 color:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:20px;
 font-weight:700;
+font-size:18px;
 flex-shrink:0;
 }
 
-.review-info{
-    flex:1;
+.ae-content{
+margin-left:6px;
+flex:1;
+min-width:0;
 }
 
-.review-email{
-    color:#8b8b8b;
-    font-size:15px;
-    margin-bottom:2px;
+.ae-name{
+color:#777;
+font-size:12px;
+margin-bottom:2px;
 }
 
-.review-stars{
-    color:#ffb400;
-    font-size:14px;
-    line-height:1;
+.ae-stars{
+color:#f7a000;
+font-size:15px;
 }
 
-.review-text{
-    margin-top:4px;
-    font-size:14px;
-    line-height:1.3;
-    color:#222;
+.ae-text{
+color:#222;
+font-size:15px;
+line-height:1.5;
 }
 
-.review-date{
-    margin-top:12px;
-    color:#b5b5b5;
-    font-size:14px;
+.ae-footer{
+margin-top:8px;
+color:#b0b0b0;
+font-size:11px;
 }
 
-.review-photo img{
-width:70px;
-height:70px;
+.ae-photos img{
+width:72px;
+height:72px;
 object-fit:cover;
 border-radius:8px;
-display:block;
 }
   </style>
 </head>
@@ -866,35 +878,45 @@ Chaque balise <li> = 1 avantage
         <span>Très demandée cette semaine. Stock limité selon arrivage.</span>
       </div>
 
-     <div class="mini-order">
+    <div class="ae-review-slider">
 
-  <div class="review-avatar">
-    S
-  </div>
+<div class="ae-review active">
 
-  <div class="review-info">
+<div class="ae-top">
 
-    <div class="review-email">
-      Se****@gmail.com
-    </div>
+<div class="ae-left">
 
-    <div class="review-stars">
-      ★★★★★
-    </div>
+<div class="ae-avatar">
+S
+</div>
 
-    <div class="review-text">
-      Excellent produit et c'est simple à utiliser.
-    </div>
+<div class="ae-content">
 
-    <div class="review-date">
-      Acheteur vérifié | 21 janv. 2026
-    </div>
+<div class="ae-name">
+Se****@gmail.com
+</div>
 
-  </div>
+<div class="ae-stars">
+★★★★★
+</div>
 
-  <div class="review-photo">
-    <img src="images/avis-client1.webp" alt="Photo cliente">
-  </div>
+<div class="ae-text">
+Excellent produit et c'est simple à utiliser.
+</div>
+
+<div class="ae-footer">
+Acheteur vérifié | 21 janv. 2026
+</div>
+
+</div>
+</div>
+
+<div class="ae-photos">
+<img src="images/avis-client1.webp">
+</div>
+
+</div>
+</div>
 
 </div>
 
