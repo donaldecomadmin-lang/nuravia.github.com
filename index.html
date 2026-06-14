@@ -1118,11 +1118,15 @@ Ajouter ou supprimer des champs ici
           Nom complet
           <input id="name" type="text" autocomplete="name" placeholder="Votre nom">
         </label>
+        <label for="phone">
+          Numéro WhatsApp
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex : 07 00 00 00 00">
+        </label>
         <label for="city">
           Lieu de livraison
           <input id="city" type="text" autocomplete="address-level2" placeholder="Ex : Abidjan, Cocody">
         </label>
-        <p class="form-error" id="formError">Merci de renseigner votre nom et votre lieu.</p>
+        <p class="form-error" id="formError">Merci de renseigner votre nom, votre numéro et votre ville.</p>
         <button class="cta js-whatsapp" type="button">Envoyer ma commander sur WhatsApp</button>
       </div>
     </section>
@@ -1158,6 +1162,7 @@ CONFIGURATION GENERALE
 
     const qty = document.getElementById("qty");
     const nameInput = document.getElementById("name");
+    const phoneInput = document.getElementById("phone");
     const cityInput = document.getElementById("city");
     const formError = document.getElementById("formError");
     const timerHours = document.getElementById("timerHours");
@@ -1192,21 +1197,23 @@ CONFIGURATION GENERALE
         "Quantité : " + qty.value,
         "Total : " + formatFcfa(selectedPrice()),
         "Nom : " + nameInput.value.trim(),
+        "Téléphone : " + phoneInput.value.trim(),
         "Lieu de livraison: " + cityInput.value.trim()
       ].join("\n");
     }
 
-    function openWhatsApp() {
-      if (!nameInput.value.trim() || !cityInput.value.trim()) {
+    if (!nameInput.value.trim() || !phoneInput.value.trim() || !cityInput.value.trim()) {
         formError.classList.add("show");
         document.getElementById("commande").scrollIntoView({ behavior: "smooth", block: "start" });
-        if (!nameInput.value.trim()) {
-          nameInput.focus();
+   if (!nameInput.value.trim()) {
+        nameInput.focus();
+        } else if (!phoneInput.value.trim()) {
+        phoneInput.focus();
         } else {
-          cityInput.focus();
+        cityInput.focus();
         }
-        return;
-      }
+         return;
+        }
 
       formError.classList.remove("show");
       trackLead(selectedPrice());
