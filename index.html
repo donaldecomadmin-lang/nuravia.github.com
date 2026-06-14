@@ -1273,6 +1273,53 @@ CONFIGURATION GENERALE
   });
 })();
 
+/* ----- Swipe sur la grande image : glisser = image suivante / précédente ----- */
+(function () {
+  const heroImage = document.querySelector(".hero-image");
+  const heroPhoto = document.querySelector(".hero-photo");
+  const thumbs = Array.from(document.querySelectorAll(".thumb"));
+  if (!heroImage || !heroPhoto || !thumbs.length) return;
+
+  // Affiche une image par son numéro et déplace le contour "active"
+  function showIndex(i) {
+    const total = thumbs.length;
+    const index = (i + total) % total;          // revient au début après la dernière
+    const img = thumbs[index].querySelector("img");
+    if (!img) return;
+    heroPhoto.src = img.src;
+    heroPhoto.alt = img.alt;
+    thumbs.forEach(t => t.classList.remove("active"));
+    thumbs[index].classList.add("active");
+    thumbs[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
+  // Retrouve la vignette actuellement active
+  function currentIndex() {
+    const i = thumbs.findIndex(t => t.classList.contains("active"));
+    return i < 0 ? 0 : i;
+  }
+
+  let startX = 0;
+  let tracking = false;
+
+  heroImage.addEventListener("touchstart", function (e) {
+    startX = e.touches[0].clientX;
+    tracking = true;
+  }, { passive: true });
+
+  heroImage.addEventListener("touchend", function (e) {
+    if (!tracking) return;
+    tracking = false;
+    const diff = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diff) < 40) return;            // ignore les petits mouvements / simples taps
+    if (diff < 0) {
+      showIndex(currentIndex() + 1);            // glissé vers la gauche -> suivante
+    } else {
+      showIndex(currentIndex() - 1);            // glissé vers la droite -> précédente
+    }
+  }, { passive: true });
+})();
+
   </script>
 </body>
 </html>
