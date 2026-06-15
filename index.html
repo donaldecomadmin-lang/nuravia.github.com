@@ -872,6 +872,65 @@ border-radius:8px;
 .reassurance-mini strong{
   font-size:.6rem;font-weight:900;line-height:1.15;color:var(--ink);
 }
+ /* ============================================================ */
+    /*  POP-UP RÉCAPITULATIF DE COMMANDE                            */
+    /* ============================================================ */
+    .recap-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(20, 16, 10, .55);
+      backdrop-filter: blur(3px);
+    }
+    .recap-overlay.show { display: flex; }
+    .recap-card {
+      width: min(100%, 360px);
+      background: var(--paper);
+      border-radius: 14px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .3);
+      overflow: hidden;
+      animation: recapIn .22s ease;
+    }
+    @keyframes recapIn {
+      from { opacity: 0; transform: translateY(14px) scale(.98); }
+      to { opacity: 1; transform: none; }
+    }
+    .recap-head { padding: 16px 18px; background: var(--black); color: #fff; text-align: center; }
+    .recap-head h3 { margin: 0; font-size: 1rem; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; }
+    .recap-head p { margin: 4px 0 0; font-size: .74rem; color: #d9d9d9; }
+    .recap-body { padding: 14px 18px; }
+    .recap-row {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .86rem;
+    }
+    .recap-row:last-of-type { border-bottom: 0; }
+    .recap-row span { color: var(--muted); }
+    .recap-row strong { color: var(--ink); text-align: right; font-weight: 900; }
+    .recap-cod {
+      display: flex; align-items: center; gap: 7px; justify-content: center;
+      margin-top: 10px; padding: 8px;
+      background: #eafaf1; color: #168a4c;
+      border-radius: var(--radius); font-size: .78rem; font-weight: 900; text-align: center;
+    }
+    .recap-actions { padding: 4px 18px 18px; display: grid; gap: 8px; }
+    .recap-confirm {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; min-height: 48px; border: 0; border-radius: 999px;
+      background: #25D366; color: #fff; font-size: .92rem; font-weight: 900; text-transform: uppercase;
+    }
+    .recap-confirm:hover { background: #1eb858; }
+    .recap-confirm svg { width: 20px; height: 20px; }
+    .recap-modify {
+      width: 100%; min-height: 42px;
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--line); border-radius: 999px;
+      font-size: .82rem; font-weight: 800;
+    }
+    .recap-modify:hover { background: var(--soft); }
   </style>
 
 </head>
