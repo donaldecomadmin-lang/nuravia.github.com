@@ -1181,9 +1181,9 @@ modifier la 4e img de description
         <label for="qty">
           Quantité
           <select id="qty">
-            <option value="1" data-price="12000">1 ceinture - 12 000 FCFA</option>
-            <option value="2" data-price="22000">2 ceintures - 22 000 FCFA</option>
-            <option value="3" data-price="30000">3 ceintures - 30 000 FCFA</option>
+            <option value="1" data-price="12900">1 ceinture - 12 000 FCFA</option>
+            <option value="2" data-price="22900">2 ceintures - 22 000 FCFA</option>
+            <option value="3" data-price="30900">3 ceintures - 30 000 FCFA</option>
           </select>
         </label>
         <label for="name">
@@ -1270,7 +1270,7 @@ modifier la 4e img de description
  
     function selectedPrice() {
       const option = qty.options[qty.selectedIndex];
-      return Number(option.dataset.price || 12000);
+      return Number(option.dataset.price || 12900);
     }
  
     function formatFcfa(value) {
