@@ -526,11 +526,14 @@
     }
 
     .text-section p {
-      margin: 0 auto;
-      max-width: 330px;
-      color: #494640;
-      font-size: .93rem;
-    }
+  margin: 0 auto;
+  max-width: 380px;          /* plus large -> occupe plus d'espace */
+  color: #494640;
+  font-size: .93rem;
+  text-align: justify;        /* aligné des deux côtés, comme Word */
+  text-justify: inter-word;
+  hyphens: auto;              /* coupe proprement les mots longs en bout de ligne */
+      }
 
     .stats {
       display: grid;
