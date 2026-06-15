@@ -1082,29 +1082,26 @@ modifier la 4e img de description
   </div>
 </section>
 
-    <section class="text-section" id="commande">
+      <section class="text-section" id="commande">
       <h2>Commander sans risque</h2>
       <p>Vous ne payez rien maintenant. La commande est confirmée sur WhatsApp, puis vous payez à la livraison.</p>
-
+ 
       <div class="reassurance-mini" aria-label="Nos garanties">
-  <div class="ra-item">
-    <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M14 9h4l3 3v5h-3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
-    <strong>Livraison à domicile</strong>
-  </div>
-  <div class="ra-item">
-    <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
-    <strong>Payez à la livraison</strong>
-  </div>
-  <div class="ra-item">
-    <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-    <strong>Satisfait ou remboursé</strong>
-  </div>
-</div>
-
-      <!-- ==================================================
-FORMULAIRE COMMANDE
-Ajouter ou supprimer des champs ici
-================================================== -->
+        <div class="ra-item">
+          <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M14 9h4l3 3v5h-3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+          <strong>Livraison à domicile</strong>
+        </div>
+        <div class="ra-item">
+          <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+          <strong>Payez à la livraison</strong>
+        </div>
+        <div class="ra-item">
+          <span class="ra-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <strong>Satisfait ou remboursé</strong>
+        </div>
+      </div>
+ 
+      <!-- FORMULAIRE COMMANDE -->
       <div class="order-box">
         <label for="qty">
           Quantité
@@ -1119,23 +1116,20 @@ Ajouter ou supprimer des champs ici
           <input id="name" type="text" autocomplete="name" placeholder="Votre nom">
         </label>
         <label for="phone">
-          Numéro de telephone
-        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex : 07 00 00 00 00">
+          Numéro de téléphone
+          <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex : 07 00 00 00 00">
         </label>
         <label for="city">
           Lieu de livraison
           <input id="city" type="text" autocomplete="address-level2" placeholder="Ex : Abidjan, Cocody">
         </label>
-        <p class="form-error" id="formError">Merci de renseigner votre nom, votre numéro et votre lieu.</p>
+        <p class="form-error" id="formError">Merci de renseigner votre nom, votre numéro et votre ville.</p>
         <button class="cta js-whatsapp" type="button">Confirmer ma commande sur WhatsApp</button>
       </div>
     </section>
   </main>
-
-  <!-- ==================================================
-BOUTON FLOTTANT BAS D ECRAN
-Modifier prix et texte du bouton
-================================================== -->
+ 
+  <!-- BOUTON FLOTTANT BAS D'ECRAN -->
   <div class="fixed-cta" role="region" aria-label="Commander rapidement">
     <div class="fixed-price">
       <span>Prix promo</span>
@@ -1143,23 +1137,47 @@ Modifier prix et texte du bouton
     </div>
     <a class="cta" href="#commande">Commander</a>
   </div>
-
+ 
+  <!-- ============================================================ -->
+  <!--  POP-UP RÉCAPITULATIF (rempli automatiquement par le script) -->
+  <!-- ============================================================ -->
+  <div class="recap-overlay" id="recapModal" role="dialog" aria-modal="true" aria-label="Récapitulatif de commande">
+    <div class="recap-card">
+      <div class="recap-head">
+        <h3>Vérifiez votre commande</h3>
+        <p>Confirmez et on vous écrit sur WhatsApp</p>
+      </div>
+      <div class="recap-body">
+        <div class="recap-row"><span>Produit</span><strong id="recapProduct"></strong></div>
+        <div class="recap-row"><span>Quantité</span><strong id="recapQty"></strong></div>
+        <div class="recap-row"><span>Total</span><strong id="recapTotal"></strong></div>
+        <div class="recap-row"><span>Nom</span><strong id="recapName"></strong></div>
+        <div class="recap-row"><span>Téléphone</span><strong id="recapPhone"></strong></div>
+        <div class="recap-row"><span>Livraison</span><strong id="recapCity"></strong></div>
+        <div class="recap-cod">✓ Paiement à la livraison — rien à payer maintenant</div>
+      </div>
+      <div class="recap-actions">
+        <button class="recap-confirm" id="recapConfirm" type="button">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          Confirmer sur WhatsApp
+        </button>
+        <button class="recap-modify" id="recapClose" type="button">Modifier ma commande</button>
+      </div>
+    </div>
+  </div>
+ 
   <script>
     /* ==================================================
-CONFIGURATION GENERALE
-- WhatsApp
-- Nom du produit
-- Stock affiché
-================================================== */
+       CONFIGURATION GENERALE
+    ================================================== */
     const CONFIG = {
-      // Remplacez par votre numéro WhatsApp au format international, sans + ni espaces.
-      // Exemple Côte d'Ivoire : 2250700000000
+      // Numéro WhatsApp au format international, sans + ni espaces. Ex CI : 2250700000000
       whatsappNumber: "2250584156850",
-      productName: "Ceinture de Maternité",
+      productName: "Ceinture de Maternité Confort+",
       currency: "XOF",
       stockPercent: 18
     };
-
+ 
     const qty = document.getElementById("qty");
     const nameInput = document.getElementById("name");
     const phoneInput = document.getElementById("phone");
@@ -1170,25 +1188,22 @@ CONFIGURATION GENERALE
     const timerSeconds = document.getElementById("timerSeconds");
     const stockText = document.getElementById("stockText");
     const stockFill = document.getElementById("stockFill");
-
+ 
     function selectedPrice() {
       const option = qty.options[qty.selectedIndex];
       return Number(option.dataset.price || 12000);
     }
-
+ 
     function formatFcfa(value) {
       return new Intl.NumberFormat("fr-FR").format(value) + " FCFA";
     }
-
+ 
     function trackLead(value) {
       if (typeof fbq === "function") {
-        fbq("track", "Lead", {
-          value: value,
-          currency: CONFIG.currency
-        });
+        fbq("track", "Lead", { value: value, currency: CONFIG.currency });
       }
     }
-
+ 
     function buildMessage() {
       return [
         "Bonjour, je veux commander :",
@@ -1198,137 +1213,161 @@ CONFIGURATION GENERALE
         "Total : " + formatFcfa(selectedPrice()),
         "Nom : " + nameInput.value.trim(),
         "Téléphone : " + phoneInput.value.trim(),
-        "Lieu de livraison: " + cityInput.value.trim()
+        "Lieu de livraison : " + cityInput.value.trim()
       ].join("\n");
     }
-
+ 
+    /* Étape 1 : on valide, puis on affiche le récapitulatif (pas encore WhatsApp) */
     function openWhatsApp() {
-
-    if (!nameInput.value.trim() || !phoneInput.value.trim() || !cityInput.value.trim()) {
+      if (!nameInput.value.trim() || !phoneInput.value.trim() || !cityInput.value.trim()) {
         formError.classList.add("show");
         document.getElementById("commande").scrollIntoView({ behavior: "smooth", block: "start" });
-   if (!nameInput.value.trim()) {
-        nameInput.focus();
+        if (!nameInput.value.trim()) {
+          nameInput.focus();
         } else if (!phoneInput.value.trim()) {
-        phoneInput.focus();
+          phoneInput.focus();
         } else {
-        cityInput.focus();
+          cityInput.focus();
         }
-         return;
-        }
-
+        return;
+      }
+ 
       formError.classList.remove("show");
+ 
+      // Remplit le récapitulatif avec les infos saisies
+      document.getElementById("recapProduct").textContent = CONFIG.productName;
+      document.getElementById("recapQty").textContent = qty.value;
+      document.getElementById("recapTotal").textContent = formatFcfa(selectedPrice());
+      document.getElementById("recapName").textContent = nameInput.value.trim();
+      document.getElementById("recapPhone").textContent = phoneInput.value.trim();
+      document.getElementById("recapCity").textContent = cityInput.value.trim();
+ 
+      // Affiche la fenêtre
+      document.getElementById("recapModal").classList.add("show");
+      document.body.style.overflow = "hidden";
+      document.getElementById("recapConfirm").focus();
+    }
+ 
+    /* Ferme la fenêtre sans commander */
+    function closeRecap() {
+      document.getElementById("recapModal").classList.remove("show");
+      document.body.style.overflow = "";
+    }
+ 
+    /* Étape 2 : la cliente confirme -> Lead + ouverture WhatsApp */
+    function confirmOrder() {
       trackLead(selectedPrice());
-
       const message = encodeURIComponent(buildMessage());
       const url = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + message;
       window.open(url, "_blank", "noopener");
+      closeRecap();
     }
-
-    function pad(value) {
-      return String(value).padStart(2, "0");
-    }
-
+ 
+    function pad(value) { return String(value).padStart(2, "0"); }
+ 
     function updateTimer() {
       const now = new Date();
       const end = new Date(now);
       end.setHours(23, 59, 59, 999);
-
       const remaining = Math.max(0, end.getTime() - now.getTime());
       const totalSeconds = Math.floor(remaining / 1000);
       const hours = Math.floor(totalSeconds / 3600);
       const minutes = Math.floor((totalSeconds % 3600) / 60);
       const seconds = totalSeconds % 60;
-
       timerHours.textContent = pad(hours);
       timerMinutes.textContent = pad(minutes);
       timerSeconds.textContent = pad(seconds);
     }
-
+ 
     function updateStockGauge() {
       const percent = Math.max(3, Math.min(100, CONFIG.stockPercent));
       stockText.textContent = percent + "% restant";
       stockFill.style.width = percent + "%";
     }
-
-    document.querySelectorAll(".js-whatsapp").forEach(function(button) {
-      button.addEventListener("click", function(event) {
+ 
+    /* Boutons "Commander" : on scrolle vers le formulaire, et si c'est le bouton du
+       formulaire, on lance la validation + le récapitulatif */
+    document.querySelectorAll(".js-whatsapp").forEach(function (button) {
+      button.addEventListener("click", function (event) {
         event.preventDefault();
         document.getElementById("commande").scrollIntoView({ behavior: "smooth", block: "start" });
-
         if (button.closest(".order-box")) {
           openWhatsApp();
         }
       });
     });
-
+ 
+    /* Boutons du pop-up récapitulatif */
+    document.getElementById("recapConfirm").addEventListener("click", confirmOrder);
+    document.getElementById("recapClose").addEventListener("click", closeRecap);
+    document.getElementById("recapModal").addEventListener("click", function (e) {
+      if (e.target === this) closeRecap();  // clic sur le fond sombre = fermer
+    });
+ 
     updateStockGauge();
     updateTimer();
     setInterval(updateTimer, 1000);
-
+ 
     /* ----- Galerie : clic sur une vignette = change la photo principale ----- */
-(function () {
-  const heroPhoto = document.querySelector(".hero-photo");
-  const thumbs = document.querySelectorAll(".thumb");
-  thumbs.forEach(function (thumb) {
-    thumb.addEventListener("click", function () {
-      const img = thumb.querySelector("img");
-      if (!img || !heroPhoto) return;
-      heroPhoto.src = img.src;            // remplace la grande image
-      heroPhoto.alt = img.alt;
-      thumbs.forEach(t => t.classList.remove("active"));
-      thumb.classList.add("active");      // déplace le contour noir
-    });
-  });
-})();
-
-/* ----- Swipe sur la grande image : glisser = image suivante / précédente ----- */
-(function () {
-  const heroImage = document.querySelector(".hero-image");
-  const heroPhoto = document.querySelector(".hero-photo");
-  const thumbs = Array.from(document.querySelectorAll(".thumb"));
-  if (!heroImage || !heroPhoto || !thumbs.length) return;
-
-  // Affiche une image par son numéro et déplace le contour "active"
-  function showIndex(i) {
-    const total = thumbs.length;
-    const index = (i + total) % total;          // revient au début après la dernière
-    const img = thumbs[index].querySelector("img");
-    if (!img) return;
-    heroPhoto.src = img.src;
-    heroPhoto.alt = img.alt;
-    thumbs.forEach(t => t.classList.remove("active"));
-    thumbs[index].classList.add("active");
-    thumbs[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  }
-
-  // Retrouve la vignette actuellement active
-  function currentIndex() {
-    const i = thumbs.findIndex(t => t.classList.contains("active"));
-    return i < 0 ? 0 : i;
-  }
-
-  let startX = 0;
-  let tracking = false;
-
-  heroImage.addEventListener("touchstart", function (e) {
-    startX = e.touches[0].clientX;
-    tracking = true;
-  }, { passive: true });
-
-  heroImage.addEventListener("touchend", function (e) {
-    if (!tracking) return;
-    tracking = false;
-    const diff = e.changedTouches[0].clientX - startX;
-    if (Math.abs(diff) < 40) return;            // ignore les petits mouvements / simples taps
-    if (diff < 0) {
-      showIndex(currentIndex() + 1);            // glissé vers la gauche -> suivante
-    } else {
-      showIndex(currentIndex() - 1);            // glissé vers la droite -> précédente
-    }
-  }, { passive: true });
-})();
-
+    (function () {
+      const heroPhoto = document.querySelector(".hero-photo");
+      const thumbs = document.querySelectorAll(".thumb");
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          const img = thumb.querySelector("img");
+          if (!img || !heroPhoto) return;
+          heroPhoto.src = img.src;
+          heroPhoto.alt = img.alt;
+          thumbs.forEach(t => t.classList.remove("active"));
+          thumb.classList.add("active");
+        });
+      });
+    })();
+ 
+    /* ----- Swipe sur la grande image : glisser = image suivante / précédente ----- */
+    (function () {
+      const heroImage = document.querySelector(".hero-image");
+      const heroPhoto = document.querySelector(".hero-photo");
+      const thumbs = Array.from(document.querySelectorAll(".thumb"));
+      if (!heroImage || !heroPhoto || !thumbs.length) return;
+ 
+      function showIndex(i) {
+        const total = thumbs.length;
+        const index = (i + total) % total;
+        const img = thumbs[index].querySelector("img");
+        if (!img) return;
+        heroPhoto.src = img.src;
+        heroPhoto.alt = img.alt;
+        thumbs.forEach(t => t.classList.remove("active"));
+        thumbs[index].classList.add("active");
+        thumbs[index].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
+ 
+      function currentIndex() {
+        const i = thumbs.findIndex(t => t.classList.contains("active"));
+        return i < 0 ? 0 : i;
+      }
+ 
+      let startX = 0;
+      let tracking = false;
+ 
+      heroImage.addEventListener("touchstart", function (e) {
+        startX = e.touches[0].clientX;
+        tracking = true;
+      }, { passive: true });
+ 
+      heroImage.addEventListener("touchend", function (e) {
+        if (!tracking) return;
+        tracking = false;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) < 40) return;
+        if (diff < 0) {
+          showIndex(currentIndex() + 1);
+        } else {
+          showIndex(currentIndex() - 1);
+        }
+      }, { passive: true });
+    })();
   </script>
 </body>
 </html>
